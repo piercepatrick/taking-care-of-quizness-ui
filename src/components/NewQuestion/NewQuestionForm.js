@@ -42,10 +42,7 @@ function NewQuestionForm() {
         variant="filled"
       />
       <Button variant="outlined" color="primary">
-        Add Another Question
-      </Button>
-      <Button variant="outlined" color="secondary">
-        Done
+        Add Question
       </Button>
     </form>
   );
