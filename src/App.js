@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@material-ui/core";
 
-import NewQuestion from "./components/NewQuestionForm";
+import NewQuestion from "./components/NewQuestion/NewQuestion";
 import { theme } from "./theme";
 
 function App() {
