@@ -1,58 +1,27 @@
-import { Button, Container, makeStyles } from "@material-ui/core";
+import { Button, Grid, makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
-  answers: {
-    display: "flex",
-    flexWrap: "wrap",
-    alignContent: "center",
-    width: "100%",
-  },
-  answerRowLeft: {
-    marginRight: "0.5em",
-    marginBottom: "1em",
-    width: "48.5%",
-  },
-  answerRowRight: {
-    marginLeft: "0.5em",
-    marginBottom: "1em",
-    width: "49.5%",
-  },
+const useStyles = makeStyles(() => ({
+  answers: { width: "100%", height: "100%" },
+  answer: { width: "100%", height: "100%" },
 }));
 
 function QuizAnswers({ answers }) {
   const classes = useStyles();
 
   return (
-    <Container className={classes.answers}>
-      <Button
-        className={classes.answerRowLeft}
-        variant="outlined"
-        color="secondary"
-      >
-        {answers[0].answerText}
-      </Button>
-      <Button
-        className={classes.answerRowRight}
-        variant="outlined"
-        color="secondary"
-      >
-        {answers[1].answerText}
-      </Button>
-      <Button
-        className={classes.answerRowLeft}
-        variant="outlined"
-        color="secondary"
-      >
-        {answers[2].answerText}
-      </Button>
-      <Button
-        className={classes.answerRowRight}
-        variant="outlined"
-        color="secondary"
-      >
-        {answers[3].answerText}
-      </Button>
-    </Container>
+    <Grid container className={classes.answers} spacing={2}>
+      {answers.map(({ answerText }) => (
+        <Grid item xs={12} sm={6}>
+          <Button
+            className={classes.answer}
+            variant="outlined"
+            color="secondary"
+          >
+            {answerText}
+          </Button>
+        </Grid>
+      ))}
+    </Grid>
   );
 }
 
