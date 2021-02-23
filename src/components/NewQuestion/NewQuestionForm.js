@@ -1,4 +1,4 @@
-import { Button, TextField, makeStyles } from "@material-ui/core";
+import { Button, TextField, makeStyles, Divider } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -9,6 +9,13 @@ const useStyles = makeStyles((theme) => ({
       flex: 1,
     },
   },
+  divider: {
+    marginTop: "2em",
+    marginBottom: "2em",
+  },
+  bottomSpace: {
+    paddingBottom: "3em",
+  },
 }));
 
 function NewQuestionForm() {
@@ -16,7 +23,12 @@ function NewQuestionForm() {
 
   return (
     <form className={classes.form} noValidate autoComplete="off">
-      <TextField id="filled-basic" label="Category" variant="filled" />
+      <TextField
+        id="filled-basic"
+        label="Category"
+        variant="filled"
+        className={classes.bottomSpace}
+      />
       <TextField
         id="filled-basic"
         label="Question"
@@ -24,6 +36,7 @@ function NewQuestionForm() {
         rows={4}
         rowsMax={10}
         multiline
+        className={classes.bottomSpace}
       />
       <TextField id="filled-basic" label="Correct Answer" variant="filled" />
       <TextField
@@ -41,6 +54,7 @@ function NewQuestionForm() {
         label="Incorrect Answer 3"
         variant="filled"
       />
+      <Divider className={classes.divider} />
       <Button variant="outlined" color="primary">
         Add Question
       </Button>
