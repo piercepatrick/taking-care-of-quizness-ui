@@ -25,10 +25,10 @@ function QuizHeader({ categoryName, currentQuestionNumber, totalQuestions }) {
 
   return (
     <Container className={classes.header}>
-      <h2>{categoryName}</h2>
-      <p>
+      <Typography variant="h2">{categoryName}</Typography>
+      <Typography variant="body1">
         {currentQuestionNumber} of {totalQuestions}
-      </p>
+      </Typography>
       <LinearProgress
         color="primary"
         variant="determinate"
