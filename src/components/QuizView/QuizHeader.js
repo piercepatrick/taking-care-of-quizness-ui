@@ -19,10 +19,6 @@ function QuizHeader({ categoryName, currentQuestionNumber, totalQuestions }) {
   const classes = useStyles();
   const percentDone = (currentQuestionNumber / totalQuestions) * 100;
 
-  useEffect(() => {
-    setPercentDone((currentQuestionNumber / totalQuestions) * 100);
-  }, [currentQuestionNumber, totalQuestions]);
-
   return (
     <Container className={classes.header}>
       <Typography variant="h2">{categoryName}</Typography>
