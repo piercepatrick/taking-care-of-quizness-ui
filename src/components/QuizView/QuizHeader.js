@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 
 function QuizHeader({ categoryName, currentQuestionNumber, totalQuestions }) {
   const classes = useStyles();
-  const [percentDone, setPercentDone] = useState(0);
+  const percentDone = (currentQuestionNumber / totalQuestions) * 100;
 
   useEffect(() => {
     setPercentDone((currentQuestionNumber / totalQuestions) * 100);
