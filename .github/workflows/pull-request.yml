@@ -51,5 +51,6 @@ jobs:
           key: ${{ runner.os }}-cache-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-cache-
+      - run: mkdir build
       - run: yarn --cwd infra --frozen-lockfile
       - run: yarn --cwd infra test
