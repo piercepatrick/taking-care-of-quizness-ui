@@ -18,7 +18,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "./scripts/deploy-static-website.sh"
+    "deploy": "yarn && yarn build && yarn --cwd infra && yarn --cwd infra deploy"
   },
   "eslintConfig": {
     "extends": [

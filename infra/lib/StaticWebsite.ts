@@ -15,6 +15,7 @@ import {
   SecurityPolicyProtocol,
   AliasConfiguration,
 } from "@aws-cdk/aws-cloudfront";
+import { BucketDeployment, Source } from '@aws-cdk/aws-s3-deployment';
 
 export interface StaticWebsiteProps extends StackProps {
   hostedZone?: string;
@@ -105,5 +106,12 @@ export class StaticWebsite extends Stack {
         zone,
       });
     }
+
+    new BucketDeployment(this, 'DeployWithInvalidation', {
+      sources: [ Source.asset('../build') ],
+      destinationBucket: bucket,
+      distribution,
+      distributionPaths: ['/*'],
+    });
   }
 }

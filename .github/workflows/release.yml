@@ -26,5 +26,4 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_NONPROD_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_NONPROD_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
-      - run: yarn build
-      - run: AWS_S3_BUCKET=${{ secrets.AWS_S3_BUCKET }} AWS_CF_DISTRIBUTION_ID=${{ secrets.AWS_CF_DISTRIBUTION_ID }} BUILD_DIR=build yarn deploy
+      - run: yarn deploy

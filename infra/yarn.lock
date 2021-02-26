@@ -332,6 +332,21 @@
     "@aws-cdk/cx-api" "1.91.0"
     constructs "^3.2.0"
 
+"@aws-cdk/aws-s3-deployment@^1.91.0":
+  version "1.91.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-s3-deployment/-/aws-s3-deployment-1.91.0.tgz#616460273d27a0c2a79760d3d1a4eb2d43786c7b"
+  integrity sha512-qx7J1FVnL+WrYw6T5n3hEjDMvhdC2Ixk9fgBBsmV1jGkULnCUCvup0SDEMflmJpyccGl8XRSoqYn9xH7e6Fv5A==
+  dependencies:
+    "@aws-cdk/aws-cloudfront" "1.91.0"
+    "@aws-cdk/aws-ec2" "1.91.0"
+    "@aws-cdk/aws-iam" "1.91.0"
+    "@aws-cdk/aws-lambda" "1.91.0"
+    "@aws-cdk/aws-s3" "1.91.0"
+    "@aws-cdk/aws-s3-assets" "1.91.0"
+    "@aws-cdk/core" "1.91.0"
+    "@aws-cdk/lambda-layer-awscli" "1.91.0"
+    constructs "^3.2.0"
+
 "@aws-cdk/aws-s3@1.91.0", "@aws-cdk/aws-s3@^1.91.0":
   version "1.91.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-s3/-/aws-s3-1.91.0.tgz#ab1ed2308f4eec7151397d62f0f1278ef225ccc9"
@@ -441,6 +456,15 @@
   dependencies:
     "@aws-cdk/cloud-assembly-schema" "1.91.0"
     semver "^7.3.4"
+
+"@aws-cdk/lambda-layer-awscli@1.91.0":
+  version "1.91.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/lambda-layer-awscli/-/lambda-layer-awscli-1.91.0.tgz#464fff30786366c43d68a253b8d17e71c4777ccc"
+  integrity sha512-swfUPdBqYZk3ZzEH4qIjDlZIL6iH/1JhGhpOsx08m9p8uSUhX+hBt59QhgqItQNIs53IvlPov8SlsPzy3Yhy2A==
+  dependencies:
+    "@aws-cdk/aws-lambda" "1.91.0"
+    "@aws-cdk/core" "1.91.0"
+    constructs "^3.2.0"
 
 "@aws-cdk/region-info@1.91.0":
   version "1.91.0"
