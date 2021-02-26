@@ -1,0 +1,29 @@
+{
+  "name": "taking-care-of-quizness-ui-infra",
+  "version": "1.0.0",
+  "description": "Infrastructure to host the taking-care-of-quizness-ui website",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "provision": "cdk deploy",
+    "synth": "cdk synth",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@aws-cdk/assert": "^1.90.1",
+    "@aws-cdk/aws-certificatemanager": "^1.91.0",
+    "@aws-cdk/aws-cloudfront": "^1.91.0",
+    "@aws-cdk/aws-route53": "^1.91.0",
+    "@aws-cdk/aws-route53-targets": "^1.91.0",
+    "@aws-cdk/aws-s3": "^1.91.0",
+    "@aws-cdk/core": "^1.90.1",
+    "aws-cdk": "^1.90.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.20",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.5"
+  }
+}
