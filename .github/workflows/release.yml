@@ -20,6 +20,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cache-
       - run: yarn --frozen-lockfile
+      - run: yarn --cwd infra --frozen-lockfile
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:

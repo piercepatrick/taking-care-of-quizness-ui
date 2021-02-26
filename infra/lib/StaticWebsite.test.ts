@@ -3,7 +3,7 @@ import { App } from '@aws-cdk/core';
 import { StaticWebsite } from './StaticWebsite';
 
 describe('StaticWebsite', () => {
-  it('should work', () => {
+  it('should create the basic resources', () => {
     const app = new App();
     const stack = new StaticWebsite(app, 'test', {
       env: {
