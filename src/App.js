@@ -1,4 +1,4 @@
-import { Drawer, ThemeProvider } from "@material-ui/core";
+import { ThemeProvider } from "@material-ui/core";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import NewQuestion from "./components/NewQuestion/NewQuestion";
