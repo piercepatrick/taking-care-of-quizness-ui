@@ -17,18 +17,14 @@ const useStyles = makeStyles((theme) => ({
 
 function QuizHeader({ categoryName, currentQuestionNumber, totalQuestions }) {
   const classes = useStyles();
-  const [percentDone, setPercentDone] = useState(0);
-
-  useEffect(() => {
-    setPercentDone((currentQuestionNumber / totalQuestions) * 100);
-  }, [currentQuestionNumber, totalQuestions]);
+  const percentDone = (currentQuestionNumber / totalQuestions) * 100;
 
   return (
     <Container className={classes.header}>
-      <h2>{categoryName}</h2>
-      <p>
+      <Typography variant="h2">{categoryName}</Typography>
+      <Typography variant="body1">
         {currentQuestionNumber} of {totalQuestions}
-      </p>
+      </Typography>
       <LinearProgress
         color="primary"
         variant="determinate"
