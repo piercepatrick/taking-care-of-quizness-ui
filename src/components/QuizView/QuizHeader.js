@@ -1,5 +1,9 @@
-import { useEffect, useState } from "react";
-import { Container, LinearProgress, makeStyles } from "@material-ui/core";
+import {
+  Container,
+  LinearProgress,
+  Typography,
+  makeStyles,
+} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   header: {
