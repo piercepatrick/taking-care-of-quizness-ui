@@ -15,12 +15,13 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles({
   navItem: {
     color: "rgba(0, 0, 0.6)",
-    "&:hover, &:hover $icon": {
-      color: "#6200EE",
+    "&:hover": {
       backgroundColor: "#F2E7FE",
     },
+    "&:hover > *": {
+      color: "#6200EE",
+    },
   },
-  icon: {},
   navText: {
     textDecoration: "none",
   },
@@ -40,13 +41,13 @@ function Navigation() {
             button
             className={classes.navItem}
           >
-            <ListItemIcon className={classes.icon}>
+            <ListItemIcon>
               <AddIcon />
             </ListItemIcon>
-            <ListItemText primary="Create new question" />
+            <ListItemText primary="Add new question" />
           </ListItem>
           <ListItem component={Link} to="/" button className={classes.navItem}>
-            <ListItemIcon className={classes.icon}>
+            <ListItemIcon>
               <QuestionAnswerIcon />
             </ListItemIcon>
             <ListItemText className={classes.navText} primary="My questions" />
@@ -55,13 +56,13 @@ function Navigation() {
         <Divider variant="fullWidth" />
         <List>
           <ListItem button className={classes.navItem}>
-            <ListItemIcon className={classes.icon}>
+            <ListItemIcon>
               <SettingsIcon />
             </ListItemIcon>
             <ListItemText primary="Account settings" />
           </ListItem>
           <ListItem button className={classes.navItem}>
-            <ListItemIcon className={classes.icon}>
+            <ListItemIcon>
               <NotificationsIcon />
             </ListItemIcon>
             <ListItemText primary="Notifications" />

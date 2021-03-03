@@ -14,12 +14,20 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginLeft: "0.5em",
+    "&:hover": {
+      backgroundColor: "rgba(0, 0, 0, 0)",
+      color: "#6200EE",
+    },
   },
   hide: {
     display: "none",
   },
   chevron: {
     justifyContent: "flex-end",
+    "&:hover": {
+      backgroundColor: "rgba(0, 0, 0, 0)",
+      color: "#6200EE",
+    },
   },
 }));
 

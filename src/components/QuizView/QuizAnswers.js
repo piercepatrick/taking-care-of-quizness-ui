@@ -7,11 +7,11 @@ const useStyles = makeStyles(() => ({
 
 function QuizAnswers({ answers }) {
   const classes = useStyles();
-  console.log(answers);
+
   return (
     <Grid container className={classes.answers} spacing={2}>
       {answers.map((value) => (
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={6} key={value}>
           <Button
             className={classes.answer}
             variant="outlined"
