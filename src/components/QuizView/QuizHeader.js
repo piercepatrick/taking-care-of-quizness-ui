@@ -1,8 +1,8 @@
 import {
   Container,
   LinearProgress,
-  Typography,
   makeStyles,
+  Typography,
 } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
