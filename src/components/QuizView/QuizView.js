@@ -29,27 +29,15 @@ const questions = [
 ];
 
 function QuizView() {
-  const [question, setQuestion] = useState(questions[0]);
+  const [questionIndex, setQuestionIndex] = useState(0);
+  const question = questions[questionIndex];
 
-  const onClickNext = () => {
-    const nextQuestionIndex = questions.indexOf(question) + 1;
-
-    if (nextQuestionIndex > questions.length - 1) {
-      setQuestion(questions[0]);
-    } else {
-      setQuestion(questions[nextQuestionIndex]);
-    }
-  };
-
-  const onClickPrevious = () => {
-    const previousQuestionIndex = questions.indexOf(question) - 1;
-
-    if (previousQuestionIndex < 0) {
-      setQuestion(questions[questions.length - 1]);
-    } else {
-      setQuestion(questions[previousQuestionIndex]);
-    }
-  };
+  const onClickNext = () =>
+    setQuestionIndex((currentIndex) => (currentIndex + 1) % questions.length);
+  const onClickPrevious = () =>
+    setQuestionIndex(
+      (currentIndex) => (currentIndex - 1 + questions.length) % questions.length
+    );
 
   const answersList = shuffle([
     ...question.answersJSON.incorrectAnswers,
