@@ -10,14 +10,14 @@ function QuizAnswers({ answers }) {
 
   return (
     <Grid container className={classes.answers} spacing={2}>
-      {answers.map(({ answerText }) => (
-        <Grid item xs={12} sm={6}>
+      {answers.map((value) => (
+        <Grid item xs={12} sm={6} key={value}>
           <Button
             className={classes.answer}
             variant="outlined"
             color="secondary"
           >
-            {answerText}
+            {value}
           </Button>
         </Grid>
       ))}
