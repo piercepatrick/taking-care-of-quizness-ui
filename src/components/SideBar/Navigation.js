@@ -46,7 +46,12 @@ function Navigation() {
             </ListItemIcon>
             <ListItemText primary="Add new question" />
           </ListItem>
-          <ListItem component={Link} to="/" button className={classes.navItem}>
+          <ListItem
+            component={Link}
+            to="/quiz"
+            button
+            className={classes.navItem}
+          >
             <ListItemIcon>
               <QuestionAnswerIcon />
             </ListItemIcon>

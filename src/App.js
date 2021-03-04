@@ -15,8 +15,11 @@ function App() {
           <Route path="/new">
             <NewQuestion />
           </Route>
-          <Route path="/">
+          <Route path="/quiz">
             <QuizView />
+          </Route>
+          <Route path="/">
+            <NewQuestion />
           </Route>
         </Switch>
       </Router>
