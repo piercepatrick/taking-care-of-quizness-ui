@@ -54,7 +54,7 @@ function App() {
 
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
-      <AmplifyAuthenticator>
+      <AmplifyAuthenticator data-testid="authenticator">
         <AmplifySignUp
           headerText="Sign up for Quizness"
           slot="sign-up"
