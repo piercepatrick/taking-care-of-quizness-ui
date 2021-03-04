@@ -1,7 +1,7 @@
 import {
+  Box,
   Card,
   CardContent,
-  Container,
   makeStyles,
   Typography,
 } from "@material-ui/core";
@@ -23,13 +23,13 @@ function QuizCard({ question }) {
   const classes = useStyles();
 
   return (
-    <Container className={classes.root}>
+    <Box className={classes.root}>
       <Card className={classes.card} variant="outlined">
         <CardContent className={classes.question}>
           <Typography variant="h5">{question}</Typography>
         </CardContent>
       </Card>
-    </Container>
+    </Box>
   );
 }
 
