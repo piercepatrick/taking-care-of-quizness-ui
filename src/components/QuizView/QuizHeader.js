@@ -1,9 +1,4 @@
-import {
-  Container,
-  LinearProgress,
-  makeStyles,
-  Typography,
-} from "@material-ui/core";
+import { Box, LinearProgress, makeStyles, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -24,7 +19,7 @@ function QuizHeader({ categoryName, currentQuestionNumber, totalQuestions }) {
   const percentDone = (currentQuestionNumber / totalQuestions) * 100;
 
   return (
-    <Container className={classes.header}>
+    <Box className={classes.header}>
       <Typography variant="h2">{categoryName}</Typography>
       <Typography variant="body1">
         {currentQuestionNumber} of {totalQuestions}
@@ -34,7 +29,7 @@ function QuizHeader({ categoryName, currentQuestionNumber, totalQuestions }) {
         variant="determinate"
         value={percentDone}
       />
-    </Container>
+    </Box>
   );
 }
 
