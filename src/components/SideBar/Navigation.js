@@ -48,7 +48,6 @@ function Navigation() {
   const signOut = async () => {
     try {
       await Auth.signOut({ global: true });
-      window.location.reload();
     } catch (error) {
       console.log("error: ", error);
     }
