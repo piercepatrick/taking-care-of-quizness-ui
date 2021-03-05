@@ -31,37 +31,29 @@ function QuizAnswers({ answers }) {
   const classes = useStyles();
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
-  const renderAnswerButton = (answer) => {
-    if (selectedAnswer && selectedAnswer.value === answer.value) {
-      return (
-        <Button
-          className={answer.isCorrect ? classes.correct : classes.incorrect}
-          variant="contained"
-          disableElevation
-          onClick={() => setSelectedAnswer(answer)}
-        >
-          {answer.value}
-        </Button>
-      );
-    } else {
-      return (
-        <Button
-          className={classes.answer}
-          variant="outlined"
-          color="secondary"
-          onClick={() => setSelectedAnswer(answer)}
-        >
-          {answer.value}
-        </Button>
-      );
-    }
-  };
-
   return (
     <Grid container spacing={2}>
       {answers.map((answer) => (
         <Grid item xs={12} sm={6} key={answer.value}>
-          {renderAnswerButton(answer)}
+          {selectedAnswer && selectedAnswer.value === answer.value ? (
+            <Button
+              className={answer.isCorrect ? classes.correct : classes.incorrect}
+              variant="contained"
+              disableElevation
+              onClick={() => setSelectedAnswer(answer)}
+            >
+              {answer.value}
+            </Button>
+          ) : (
+            <Button
+              className={classes.answer}
+              variant="outlined"
+              color="secondary"
+              onClick={() => setSelectedAnswer(answer)}
+            >
+              {answer.value}
+            </Button>
+          )}
         </Grid>
       ))}
     </Grid>
