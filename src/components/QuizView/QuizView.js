@@ -39,12 +39,19 @@ function QuizView() {
       (currentIndex) => (currentIndex - 1 + questions.length) % questions.length
     );
 
-  const answersList = shuffle([
-    ...question.answersJSON.incorrectAnswers,
-    question.answersJSON.correctAnswer,
-  ]);
-
-  console.log(answersList);
+  const makeAnswersList = () => {
+    return shuffle(
+      [
+        question.answersJSON.correctAnswer,
+        ...question.answersJSON.incorrectAnswers,
+      ].map((answer) => {
+        return {
+          value: answer,
+          isCorrect: answer === question.answersJSON.correctAnswer,
+        };
+      })
+    );
+  };
 
   return (
     <Container maxWidth="md">
@@ -54,7 +61,7 @@ function QuizView() {
         totalQuestions={questions.length}
       />
       <QuizCard question={question.questionText} />
-      <QuizAnswers answers={answersList} />
+      <QuizAnswers answers={makeAnswersList()} />
       <QuizNav onClickNext={onClickNext} onClickPrevious={onClickPrevious} />
     </Container>
   );
