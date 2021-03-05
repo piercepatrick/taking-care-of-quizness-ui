@@ -30,9 +30,7 @@ function QuizAnswers({ answers }) {
             className={classes.correct}
             variant="contained"
             disableElevation
-            onClick={() => {
-              setSelectedAnswer(answer);
-            }}
+            onClick={() => setSelectedAnswer(answer)}
           >
             {answer.value}
           </Button>
@@ -43,9 +41,7 @@ function QuizAnswers({ answers }) {
           className={classes.incorrect}
           variant="contained"
           disableElevation
-          onClick={() => {
-            setSelectedAnswer(answer);
-          }}
+          onClick={() => setSelectedAnswer(answer)}
         >
           {answer.value}
         </Button>
@@ -56,9 +52,7 @@ function QuizAnswers({ answers }) {
           className={classes.answer}
           variant="outlined"
           color="secondary"
-          onClick={() => {
-            setSelectedAnswer(answer);
-          }}
+          onClick={() => setSelectedAnswer(answer)}
         >
           {answer.value}
         </Button>
