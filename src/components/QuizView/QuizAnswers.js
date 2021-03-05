@@ -33,21 +33,9 @@ function QuizAnswers({ answers }) {
 
   const renderAnswerButton = (answer) => {
     if (selectedAnswer && selectedAnswer.value === answer.value) {
-      if (answer.isCorrect) {
-        return (
-          <Button
-            className={classes.correct}
-            variant="contained"
-            disableElevation
-            onClick={() => setSelectedAnswer(answer)}
-          >
-            {answer.value}
-          </Button>
-        );
-      }
       return (
         <Button
-          className={classes.incorrect}
+          className={answer.isCorrect ? classes.correct : classes.incorrect}
           variant="contained"
           disableElevation
           onClick={() => setSelectedAnswer(answer)}
