@@ -5,16 +5,25 @@ const useStyles = makeStyles(() => ({
   answer: {
     width: "100%",
     height: "100%",
+    "&:hover": {
+      backgroundColor: "transparent",
+    },
   },
   correct: {
     width: "100%",
     height: "100%",
     backgroundColor: "#C8FFF4",
+    "&:hover": {
+      backgroundColor: "#C8FFF4",
+    },
   },
   incorrect: {
     width: "100%",
     height: "100%",
     backgroundColor: "#F5DBDB",
+    "&:hover": {
+      backgroundColor: "#F5DBDB",
+    },
   },
 }));
 
