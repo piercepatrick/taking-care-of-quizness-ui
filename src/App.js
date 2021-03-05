@@ -26,7 +26,7 @@ function App() {
         case "signOut":
           return updateUser(null);
         default:
-          throw new Error("SOmething when wrong with auth");
+          throw new Error("Something when wrong with auth");
       }
     });
   }, []);
