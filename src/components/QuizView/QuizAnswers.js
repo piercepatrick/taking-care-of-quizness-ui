@@ -1,31 +1,33 @@
 import { useState } from "react";
-import { Button, Grid, makeStyles } from "@material-ui/core";
+import {
+  Button,
+  createMuiTheme,
+  Grid,
+  ThemeProvider,
+  makeStyles,
+} from "@material-ui/core";
+
+import { theme } from "../../theme";
 
 const useStyles = makeStyles(() => ({
-  answer: {
-    width: "100%",
-    height: "100%",
-    "&:hover": {
-      backgroundColor: "transparent",
-    },
-  },
-  correct: {
-    width: "100%",
-    height: "100%",
-    backgroundColor: "#C8FFF4",
-    "&:hover": {
-      backgroundColor: "#C8FFF4",
-    },
-  },
-  incorrect: {
-    width: "100%",
-    height: "100%",
-    backgroundColor: "#F5DBDB",
-    "&:hover": {
-      backgroundColor: "#F5DBDB",
-    },
-  },
+  answer: { width: "100%" },
 }));
+
+const correctTheme = createMuiTheme({
+  ...theme,
+  palette: {
+    ...theme.palette,
+    primary: { main: "#C8FFF4" },
+  },
+});
+
+const incorrectTheme = createMuiTheme({
+  ...theme,
+  palette: {
+    ...theme.palette,
+    primary: { main: "#F5DBDB" },
+  },
+});
 
 function QuizAnswers({ answers }) {
   const classes = useStyles();
@@ -35,25 +37,19 @@ function QuizAnswers({ answers }) {
     <Grid container spacing={2}>
       {answers.map((answer) => (
         <Grid item xs={12} sm={6} key={answer.value}>
-          {selectedAnswer && selectedAnswer.value === answer.value ? (
+          <ThemeProvider
+            theme={answer.isCorrect ? correctTheme : incorrectTheme}
+          >
             <Button
-              className={answer.isCorrect ? classes.correct : classes.incorrect}
-              variant="contained"
               disableElevation
-              onClick={() => setSelectedAnswer(answer)}
-            >
-              {answer.value}
-            </Button>
-          ) : (
-            <Button
               className={classes.answer}
-              variant="outlined"
-              color="secondary"
+              color={answer === selectedAnswer ? "primary" : "secondary"}
+              variant={answer === selectedAnswer ? "contained" : "outlined"}
               onClick={() => setSelectedAnswer(answer)}
             >
               {answer.value}
             </Button>
-          )}
+          </ThemeProvider>
         </Grid>
       ))}
     </Grid>
