@@ -32,10 +32,7 @@ function QuizView() {
   const [questionIndex, setQuestionIndex] = useState(0);
   const question = questions[questionIndex];
   const { correctAnswer, incorrectAnswers } = JSON.parse(question.answersJSON);
-  const answers = shuffle([
-    correctAnswer,
-    ...incorrectAnswers,
-  ]).map((value) => ({ value, isCorrect: value === correctAnswer }));
+  const answers = shuffle([correctAnswer, ...incorrectAnswers]);
 
   const onClickNext = () =>
     setQuestionIndex((currentIndex) => (currentIndex + 1) % questions.length);
@@ -52,7 +49,7 @@ function QuizView() {
         totalQuestions={questions.length}
       />
       <QuizCard question={question.questionText} />
-      <QuizAnswers answers={answers} />
+      <QuizAnswers answers={answers} correctAnswer={correctAnswer} />
       <QuizNav onClickNext={onClickNext} onClickPrevious={onClickPrevious} />
     </Container>
   );
