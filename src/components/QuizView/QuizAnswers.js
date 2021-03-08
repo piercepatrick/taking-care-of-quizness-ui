@@ -29,16 +29,16 @@ const incorrectTheme = createMuiTheme({
   },
 });
 
-function QuizAnswers({ answers }) {
+function QuizAnswers({ answers, correctAnswer }) {
   const classes = useStyles();
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
   return (
     <Grid container spacing={2}>
       {answers.map((answer) => (
-        <Grid item xs={12} sm={6} key={answer.value}>
+        <Grid item xs={12} sm={6} key={answer}>
           <ThemeProvider
-            theme={answer.isCorrect ? correctTheme : incorrectTheme}
+            theme={answer === correctAnswer ? correctTheme : incorrectTheme}
           >
             <Button
               disableElevation
@@ -47,7 +47,7 @@ function QuizAnswers({ answers }) {
               variant={answer === selectedAnswer ? "contained" : "outlined"}
               onClick={() => setSelectedAnswer(answer)}
             >
-              {answer.value}
+              {answer}
             </Button>
           </ThemeProvider>
         </Grid>
