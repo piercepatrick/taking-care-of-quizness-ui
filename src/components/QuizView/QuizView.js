@@ -12,25 +12,30 @@ const questions = [
     questionId: "12345-12345-12345-12345",
     category: "Bears",
     questionText: "Which kind of bear is best?",
-    answersJSON: {
+    answersJSON: JSON.stringify({
       correctAnswer: "Brown",
       incorrectAnswers: ["Black", "Panda", "Koala"],
-    },
+    }),
   },
   {
     questionId: "54321-54321-54321-54321",
     category: "Beet Farming",
     questionText: "How long does it take a beet to go to seed?",
-    answersJSON: {
+    answersJSON: JSON.stringify({
       correctAnswer: "6 months",
       incorrectAnswers: ["2 weeks", "15 days", "3 years"],
-    },
+    }),
   },
 ];
 
 function QuizView() {
   const [questionIndex, setQuestionIndex] = useState(0);
   const question = questions[questionIndex];
+  const { correctAnswer, incorrectAnswers } = JSON.parse(question.answersJSON);
+  const answers = shuffle([
+    correctAnswer,
+    ...incorrectAnswers,
+  ]).map((value) => ({ value, isCorrect: value === correctAnswer }));
 
   const onClickNext = () =>
     setQuestionIndex((currentIndex) => (currentIndex + 1) % questions.length);
@@ -38,20 +43,6 @@ function QuizView() {
     setQuestionIndex(
       (currentIndex) => (currentIndex - 1 + questions.length) % questions.length
     );
-
-  const makeAnswersList = () => {
-    return shuffle(
-      [
-        question.answersJSON.correctAnswer,
-        ...question.answersJSON.incorrectAnswers,
-      ].map((answer) => {
-        return {
-          value: answer,
-          isCorrect: answer === question.answersJSON.correctAnswer,
-        };
-      })
-    );
-  };
 
   return (
     <Container maxWidth="md">
@@ -61,7 +52,7 @@ function QuizView() {
         totalQuestions={questions.length}
       />
       <QuizCard question={question.questionText} />
-      <QuizAnswers answers={makeAnswersList()} />
+      <QuizAnswers answers={answers} />
       <QuizNav onClickNext={onClickNext} onClickPrevious={onClickPrevious} />
     </Container>
   );
