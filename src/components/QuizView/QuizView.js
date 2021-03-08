@@ -57,7 +57,7 @@ function QuizView() {
     <Container maxWidth="md">
       <QuizHeader
         categoryName={question.category}
-        currentQuestionNumber={questions.indexOf(question) + 1}
+        currentQuestionNumber={questionIndex + 1}
         totalQuestions={questions.length}
       />
       <QuizCard question={question.questionText} />
