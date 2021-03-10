@@ -1,9 +1,11 @@
 export const AuthConfig = {
-  Auth: {
-    region: "us-east-1",
-    userPoolId: "us-east-1_hqTnRp3AM",
-    userPoolWebClientId: "6jvgeusdbnpkpieka68m9lc3jc",
-    mandatorySignIn: true,
-    authenticationFlowType: "USER_SRP_AUTH",
+  region: "us-east-1",
+  userPoolId: "",
+  userPoolWebClientId: "",
+  oauth: {
+    scope: ["aws.cognito.signin.user.admin", "openid"],
+    redirectSignIn: `${window.location.protocol}//${window.location.host}/login`,
+    redirectSignOut: `${window.location.protocol}//${window.location.host}/logout`,
+    responseType: "code",
   },
 };
