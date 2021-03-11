@@ -25,9 +25,8 @@ function QuizView() {
           "Content-Type": "application/json",
         },
       });
-      const json = await res.json();
-      const body = json.body;
-      const parsed = JSON.parse(body);
+      const json = (await res.json()).body;
+      const parsed = JSON.parse(json);
       setQuestions(parsed);
     };
     fetchQuestions();
