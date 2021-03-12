@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
-import { ThemeProvider } from "@material-ui/core";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Container, ThemeProvider } from "@material-ui/core";
 import { AmplifyAuthenticator, AmplifySignUp } from "@aws-amplify/ui-react";
 import { Auth, Hub } from "aws-amplify";
 
-import NewQuestion from "./components/NewQuestion/NewQuestion";
-import QuizView from "./components/QuizView/QuizView";
 import SideBar from "./components/SideBar/SideBar";
+import Illustration from "./assets/images/Illustration.svg";
 import { theme } from "./theme";
 import { AuthConfig } from "./authentication/config";
 
@@ -34,20 +32,10 @@ function App() {
   if (user) {
     return (
       <ThemeProvider theme={theme}>
-        <Router>
-          <SideBar />
-          <Switch>
-            <Route path="/new">
-              <NewQuestion />
-            </Route>
-            <Route path="/quiz">
-              <QuizView />
-            </Route>
-            <Route path="/">
-              <NewQuestion />
-            </Route>
-          </Switch>
-        </Router>
+        <SideBar username={user.username} />
+        <Container maxWidth="md">
+          <img src={Illustration} alt="logo illustration" />
+        </Container>
       </ThemeProvider>
     );
   }

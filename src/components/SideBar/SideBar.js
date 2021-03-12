@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SideBar() {
+function SideBar({ username }) {
   const classes = useStyles();
   const [isDrawerOpen, setDrawerOpen] = useState(false);
 
@@ -59,7 +59,7 @@ function SideBar() {
           >
             <ChevronLeftIcon fontSize="large" />
           </IconButton>
-          <ProfileInfo userName="Dwight Schrute" />
+          <ProfileInfo userName={username} />
           <Navigation />
         </Drawer>
       </Container>
