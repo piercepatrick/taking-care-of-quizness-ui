@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
-import { Container } from "@material-ui/core";
+import {
+  Box,
+  CircularProgress,
+  Container,
+  makeStyles,
+} from "@material-ui/core";
 import { Auth } from "aws-amplify";
 import shuffle from "array-shuffle";
 
@@ -8,7 +13,16 @@ import QuizCard from "./QuizCard";
 import QuizAnswers from "./QuizAnswers";
 import QuizNav from "./QuizNav";
 
+const useStyles = makeStyles({
+  spinnerBox: {
+    display: "flex",
+    alignSelf: "center",
+    justifyContent: "center",
+  },
+});
+
 function QuizView() {
+  const classes = useStyles();
   const [questions, setQuestions] = useState(null);
   const [questionIndex, setQuestionIndex] = useState(0);
 
@@ -48,7 +62,7 @@ function QuizView() {
     const answers = shuffle([correctAnswer, ...incorrectAnswers]);
 
     return (
-      <Container maxWidth="md">
+      <>
         <QuizHeader
           categoryName={question.category}
           currentQuestionNumber={questionIndex + 1}
@@ -57,15 +71,23 @@ function QuizView() {
         <QuizCard question={question.questionText} />
         <QuizAnswers answers={answers} correctAnswer={correctAnswer} />
         <QuizNav onClickNext={onClickNext} onClickPrevious={onClickPrevious} />
-      </Container>
+      </>
     );
   };
 
   const renderLoading = () => {
-    return <h3>Loading...</h3>;
+    return (
+      <Box className={classes.spinnerBox}>
+        <CircularProgress color="primary" />
+      </Box>
+    );
   };
 
-  return questions ? renderQuiz() : renderLoading();
+  return (
+    <Container maxWidth="md">
+      {questions ? renderQuiz() : renderLoading()}
+    </Container>
+  );
 }
 
 export default QuizView;
