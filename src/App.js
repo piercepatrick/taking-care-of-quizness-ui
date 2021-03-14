@@ -1,7 +1,11 @@
+import Auth from "@aws-amplify/auth";
 import { Container, ThemeProvider } from "@material-ui/core";
-
 import Illustration from "./assets/images/Illustration.svg";
 import { theme } from "./theme";
+import { AuthConfig } from "./authentication/AuthConfig";
+import { withAuthenticator } from "@aws-amplify/ui-react";
+
+Auth.configure(AuthConfig);
 
 function App() {
   return (
@@ -13,4 +17,4 @@ function App() {
   );
 }
 
-export default App;
+export default withAuthenticator(App);
